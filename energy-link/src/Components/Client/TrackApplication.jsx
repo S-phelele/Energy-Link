@@ -1,56 +1,45 @@
 import React, { useState } from 'react';
-import '../Client/Tracking.css';
+import './Tracking.css'; // Create this file for styling
 
-function TrackApplication() {
-    const [applicationId, setApplicationId] = useState('');
-    const [applicationStatus, setApplicationStatus] = useState('');
-    const [error, setError] = useState('');
+const steps = [
+  'REGISTRATION SUBMISSION',
+  'APPLICATION REVIEW',
+  'VALIDATION',
+  'EVALUATION',
+  'APPROVAL OR DENIAL'
+];
 
-    const handleTrackApplication = (e) => {
-        e.preventDefault();
+function App() {
+  const [currentStep, setCurrentStep] = useState(1);
 
-        if (applicationId === '12345') {
-            setApplicationStatus('Your application is currently being reviewed.');
-            setError('');
-        } else {
-            setError('Application not found. Please check the ID and try again.');
-            setApplicationStatus('');
-        }
-    };
+  const handleNextStep = () => {
+    if (currentStep < steps.length) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
 
-    return (
-        <div className="track-container">
-            <div className="content-box">
-                <h2>Track Your Application</h2>
-                <form onSubmit={handleTrackApplication}>
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            placeholder="Enter Application ID"
-                            value={applicationId}
-                            onChange={(e) => setApplicationId(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="track-btn">Track Application</button>
-                </form>
+  const handlePreviousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
 
-                {/* Diagram Representation */}
-                <div className="diagram-container">
-                    <div className="diagram-box">
-                        {error && <div className="error-message">{error}</div>}
-                        {applicationStatus && <div className="status-message">{applicationStatus}</div>}
-                    </div>
-                    <div className="diagram-line" />
-                    <div className="diagram-box">Application Submitted</div>
-                    <div className="diagram-line" />
-                    <div className="diagram-box">Under Review</div>
-                    <div className="diagram-line" />
-                    <div className="diagram-box">Application Approved</div>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <div className="process-tracker">
+      <div className="steps">
+        {steps.map((step, index) => (
+          <div key={index} className={`step ${currentStep === index + 1 ? 'active' : ''}`}>
+            <div className="circle">{index + 1}</div>
+            <div className="label">{step}</div>
+          </div>
+        ))}
+      </div>
+      <div className="controls">
+        <button onClick={handlePreviousStep} disabled={currentStep === 1}>Previous</button>
+        <button onClick={handleNextStep} disabled={currentStep === steps.length}>Next</button>
+      </div>
+    </div>
+  );
 }
 
-export default TrackApplication;
+export default App;

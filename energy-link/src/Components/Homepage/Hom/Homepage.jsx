@@ -3,8 +3,15 @@ import "./Styles/HomeStyle.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useNavigate } from "react-router-dom";
 
 function Homepage() {
+
+const navigate = useNavigate();
+const handleStart=()=>{
+    navigate('/login');
+}
+
   return (
     <div className="home-Container">
         <div className="homepage1">
@@ -22,7 +29,7 @@ function Homepage() {
             </p>
             </div>
             <div className="btn-group">
-            <button className="home-btn" onClick={"/login"}>
+            <button className="home-btn" onClick={handleStart}>
                 Get Started
             </button>
             </div>
