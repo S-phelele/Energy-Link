@@ -10,11 +10,10 @@ function Application() {
     return(
         <div className="reg-container">
             <div className="content-box">
-                <div id="reg-title"><h2>Register</h2></div>
+                <div id="reg-title"><h2>Application</h2></div>
                 <form>
                     <div className="form-group2">
-                        <input type="text" id="firstName" placeholder="Enter your First Name" required />
-                        <input type="text" id="lastName" placeholder="Enter your Last `Name" required />
+                        <input type="text" id={"firstName" + "lastname"} placeholder="Enter your First Name and Surname" required />
                     </div>
 
                     <div className="form-group1">
@@ -22,11 +21,23 @@ function Application() {
                     </div>
 
                     <div className="form-group1">
-                        <input type="password" id="password" placeholder="Enter a password" required />
+                        <input type="text" id="Contacts" placeholder="Enter your Contact No" required />
                     </div>
 
                     <div className="form-group1">
-                        <input type="password" id="password" placeholder="Confirm password" required />
+                        <input type="text" id="CompanyName" placeholder="Enter a Company Name" required />
+                    </div>
+
+                    <div className="form-group1">
+                        <input type="text" id="CompanyNo" placeholder="CompanyNo" required />
+                    </div>
+
+                    <div className="form-group1">
+                        <input type="text" id="P.O Box Address" placeholder="P.O. BOX " required />
+                    </div>
+
+                    <div className="form-group1">
+                        <input type="text" id="City/Town" placeholder="City/Town " required />
                     </div>
 
                     
@@ -37,6 +48,7 @@ function Application() {
                 </form>
             </div>
         </div>
+
     );
 }
 
