@@ -1,0 +1,33 @@
+.reg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.content-box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    width: 50%;
+}
+
+.form-group2 input{
+    padding: 10px;
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+.form-group1 input{
+    padding: 10px;
+    margin: 5px;
+    width: 56%;
+    margin-bottom: 15px;
+}
+
+.register-btn {
+    padding: 10px;
+    margin: 5px;
+    margin-bottom: 15px;
+}

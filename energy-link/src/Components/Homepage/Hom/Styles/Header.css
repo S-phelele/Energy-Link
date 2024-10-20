@@ -12,6 +12,7 @@
     height: 14vh;
 }
 
+
 .left-section {
     display: flex;
     justify-content: flex-start;
@@ -39,6 +40,8 @@
     cursor: pointer;
 }
 
+
+
 #header-btn {
     margin-right: 20px;
     border: 1px solid #fff;
@@ -49,6 +52,6 @@
     border-radius: 30px;
     width: 100px;
     margin-top: 15px;
-    cursor: pointer;
+    cursor: pointer!important;
 }
 
